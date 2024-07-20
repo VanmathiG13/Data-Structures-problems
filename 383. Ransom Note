@@ -1,0 +1,23 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+       char temp[]=magazine.toCharArray();
+       int count=0;
+       for(int i=0;i<ransomNote.length();i++)
+       {
+        for(int j=0;j<temp.length;j++)
+        {
+            if(temp[j]!='_'&&temp[j]==ransomNote.charAt(i))
+            {
+                count++;
+                temp[j]='_';
+                break;
+            }
+        }
+       }
+       if(count==ransomNote.length())
+       {
+        return true;
+       }
+       return false;
+    }
+}
