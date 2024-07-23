@@ -1,0 +1,50 @@
+class Solution {
+    public List<String> summaryRanges(int[] nums) {
+        List<String> l=new ArrayList<>();
+        if(nums.length!=0)
+        {
+        String s;
+        int first=nums[0],last=nums[0];
+        for(int i=0;i<nums.length-1;i++)
+        {
+            s="";
+            if(nums[i+1]-nums[i]!=1)
+            {
+                last=nums[i];
+                if(first==last)
+                {
+                    System.out.println(first);
+                    s+=Integer.toString(first);
+                    l.add(s);
+                }
+                else
+                {
+                System.out.println(first+" "+last);
+                s+=(Integer.toString(first));
+                s+="->";
+                s+=(Integer.toString(last));
+                l.add(s);
+                }
+                first=nums[i+1];
+            }
+        }
+        s="";
+        if(nums[nums.length-1]==first)
+        {
+            System.out.println(first);
+            s+=Integer.toString(first);
+            l.add(s);
+        }
+        else
+        {
+            System.out.println(first+" "+nums[nums.length-1]);
+            s+=(Integer.toString(first));
+            s+="->";
+            s+=(Integer.toString(nums[nums.length-1]));
+            l.add(s);
+        }
+        }
+        return l;
+    }
+    
+}
