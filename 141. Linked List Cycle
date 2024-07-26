@@ -1,0 +1,22 @@
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if(head==null)
+        {
+            return false;
+        }
+        HashSet<ListNode> visited=new HashSet<>();
+        ListNode list=head;
+        while(list.next!=null&&!visited.contains(list))
+        {
+            //String address=list.next;
+            //System.out.println(list.next);
+          visited.add(list);
+          list=list.next;
+        }
+        if(list.next==null)
+        {
+            return false;
+        }
+        return true;
+    }
+}
