@@ -1,0 +1,24 @@
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root!=null)
+        {
+        ArrayList<Integer> arr=new ArrayList<>();
+        int count=0;
+        m(root,count,arr);
+        Collections.sort(arr);
+        return arr.get(arr.size()-1);
+        }
+        return 0;
+    }
+    public static void m(TreeNode root,int count,ArrayList arr)
+    {
+        if(root!=null)
+        {
+            count++;
+            m(root.left,count,arr);
+            m(root.right,count,arr);
+             arr.add(count);
+        }
+    }
+    
+}
