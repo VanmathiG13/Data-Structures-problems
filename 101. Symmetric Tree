@@ -1,0 +1,23 @@
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        TreeNode leftsub=root.left;
+        TreeNode rightsub=root.right;
+        return symmetric(leftsub,rightsub);
+    }
+    boolean symmetric(TreeNode leftsub,TreeNode rightsub)
+    {
+        if(leftsub==null&&rightsub==null)
+        {
+           return true;
+        }
+        else if(leftsub==null||rightsub==null)
+        {
+            return false;
+        }
+        else
+        {
+             return leftsub.val==rightsub.val && symmetric(leftsub.left,rightsub.right) && symmetric(leftsub.right, rightsub.left);
+        }
+        
+    }
+}
